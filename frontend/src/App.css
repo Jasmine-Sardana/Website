@@ -7,6 +7,9 @@
   border: 2px solid transparent;
   transition: border-color 0.3s;
   margin-bottom: 24px;
+/* ==========================================================================
+   Global App Layout & Component Utilities
+   ========================================================================== */
 
   &:hover {
     border-color: var(--accent-border);
@@ -57,6 +60,7 @@
 }
 
 #center {
+.app-layout {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -68,9 +72,14 @@
     padding: 32px 20px 24px;
     gap: 18px;
   }
+  min-height: 100vh;
+  width: 100%;
 }
 
 #next-steps {
+.main-content {
+  flex: 1 0 auto;
+  width: 100%;
   display: flex;
   border-top: 1px solid var(--border);
   text-align: left;
@@ -93,6 +102,7 @@
     flex-direction: column;
     text-align: center;
   }
+  flex-direction: column;
 }
 
 #docs {
@@ -102,6 +112,14 @@
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
+/* --------------------------------------------------------------------------
+   Layout Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 #next-steps ul {
@@ -151,6 +169,8 @@
       box-sizing: border-box;
     }
   }
+.container-sm {
+  max-width: 860px;
 }
 
 #spacer {
@@ -159,11 +179,20 @@
   @media (max-width: 1024px) {
     height: 48px;
   }
+.container-fluid {
+  max-width: 100%;
+  padding: 0 1.5rem;
 }
 
 .ticks {
+/* --------------------------------------------------------------------------
+   Section Structure & Spacing
+   -------------------------------------------------------------------------- */
+.section {
+  padding: 4.5rem 0;
   position: relative;
   width: 100%;
+}
 
   &::before,
   &::after {
@@ -172,6 +201,9 @@
     top: -4.5px;
     border: 5px solid transparent;
   }
+.section-subtle {
+  background-color: var(--color-bg-subtle);
+}
 
   &::before {
     left: 0;
@@ -180,5 +212,234 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+.section-alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  max-width: 760px;
+  margin: 0 auto 3rem;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(142, 27, 30, 0.15);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Logo */
+
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 24px;
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  font-weight: 800;
+  color: #171b26 !important;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.navbar-logo span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Desktop Navigation */
+/* --------------------------------------------------------------------------
+   Cards & Surfaces
+   -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-dark);
+  transform: translateY(-2px);
+}
+
+.nav-link {
+  color: #374151;
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+  transition: color 0.2s ease;
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-primary);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #b08d57;
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(142, 27, 30, 0.32);
+}
+
+/* Consultation Button */
+
+.consultation-button {
+  background-color: #b08d57;
+  color: #ffffff;
+
+  padding: 12px 18px;
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: background-color 0.2s ease;
+.btn-secondary {
+  background-color: var(--color-dark);
+  color: var(--color-text-inverse);
+}
+
+.consultation-button:hover {
+  background-color: #92723f;
+.btn-secondary:hover {
+  background-color: var(--color-secondary-hover);
+  transform: translateY(-1px);
+}
+
+/* Mobile Menu Button */
+
+.menu-button {
+  display: none;
+
+  border: none;
+  background: transparent;
+  color: #1f2937;
+
+  font-size: 26px;
+  cursor: pointer;
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 1px solid var(--color-border-dark);
+}
+
+/* Mobile Navigation */
+
+.mobile-nav {
+  display: none;
+.btn-outline:hover {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-dark);
+}
+
+/* Responsive Design */
+
+/* --------------------------------------------------------------------------
+   Responsive Helpers
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 16px 20px;
+  .section {
+    padding: 3rem 0;
+  }
+
+  .desktop-nav {
+    display: none;
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .menu-button {
+    display: block;
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 20px 24px 24px;
+    background-color: #ffffff;
+    border-top: 1px solid #eeeeee;
+  .container {
+    padding: 0 1rem;
+  }
+
+  .mobile-nav .consultation-button {
+    text-align: center;
   }
 }
