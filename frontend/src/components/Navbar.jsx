@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-
-  // Close menu automatically on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
 
   // Handle scroll detection for subtle header shadow
   useEffect(() => {
@@ -78,9 +72,9 @@ function Navbar() {
             </div>
             <div className="brand-text">
               <span className="brand-name">
-                YSA <span className="brand-accent">&bull;</span> CA
+                YSA <span className="brand-accent"></span> 
               </span>
-              <span className="brand-tagline">Chartered Accountants</span>
+              <span className="brand-tagline">Cost Accountants</span>
             </div>
           </Link>
 
